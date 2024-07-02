@@ -1,18 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>ANDÚRIL</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-
 <body>
-    <div class="container mx-auto">
-        <h1 class="text-4xl font-bold text-center mt-10">ANDÚRIL</h1>
-        <p class="text-lg text-center mt-4">This is the home of ANDÚRIL Racing</p>
-    </div>
-</body>
+    <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+            <img class="h-8" src="/assets/img/Andúril Red@4x.png" alt="ANDÚRIL Logo">
+        </div>
+        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+            <div class="text-sm lg:flex-grow">
+              <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                Home
+              </a>
+              <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                About Us
+              </a>
+              <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+                Social Media
+              </a>
+            </div>
+            <div>
+              <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Download</a>
+            </div>
+          </div>
+    </nav> 
 
+    <header class="my-24 h-800px">
+        <div class="w-full bg-center bg-cover"
+          style="background-image: url(/assets/img/Copy\ of\ IMG_2571.JPG);">
+          <div class="flex items-center justify-center w-full h-full bg-gray-900 bg-opacity-50 py-12">
+            <div class="text-center">
+              <h1 class="text-4xl font-bold text-white">ANDÚRIL</h1>
+              <p class="text-lg text-white">This is the home of ANDÚRIL Racing</p>
+            </div>
+          </div>
+        </div>
+    </header>
+      
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+      
+        body {
+          font-family: 'Transducer', 'Transducer Regular';
+        }
+      </style>
+</body>
 </html>
