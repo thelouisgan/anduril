@@ -14,7 +14,7 @@
         }
         .sword-image {
           position: absolute;
-          left: -45%;
+          left: -40.5%;
           top: 95%;
           transform: rotate(270deg) scale(1.5); /* Scale image 50% larger */
           z-index: 1; /* Ensure the sword image has a z-index for stacking */
@@ -22,6 +22,25 @@
         nav {
           position: relative; /* This makes z-index applicable */
           z-index: 2; /* Higher than the sword image */
+        }
+        .text-container {
+          position: absolute;
+          bottom: 0;
+          right: 3%;
+          width: 85%;
+          white-space: normal;
+          padding: 20px;
+          z-index: 2; /* Ensure the text container is above other elements */
+        }
+        .text-container .title {
+          font-family: 'TransducerExtendedBold';
+          color: #C4C4C4;
+          font-size: 60px;
+        }
+        .text-container .description {
+          font-family: 'TransducerRegular';
+          color: #C4C4C4;
+          font-size: 22px;
         }
     </style>
 </head>
@@ -38,23 +57,31 @@
               <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                 About Us
               </a>
-              <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+              <a href="https://instagram.com/andurilracing" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
                 Social Media
               </a>
             </div>
           </div>
     </nav>
 
+    <img src="/assets/img/Andúril Sword@4x.png" alt="ANDÚRIL Sword" class="sword-image">
+    
     <div class="w-full h-60 bg-cover" style="background-image: url('/assets/img/Copy of IMG_2571.JPG'); background-position: center 25%;">
     </div>
 
     <div class="w-full h-96 bg-cover" style="background-image: url('/assets/img/GRID_CORNER_WHITE-RIGHT.png');">
     </div>
 
-    <img src="/assets/img/Andúril Sword@4x.png" alt="ANDÚRIL Sword" class="sword-image">
-
-    <div class="text-right pr-4 py-2">
-        F1 in Schools
+    <div style="position: relative; max-width: 95%; margin: auto;">
+        <div class="text-container" style="transform: translate(70px, -50px);">
+            <div class="title text-right pr-4 py-2">
+                F1 in Schools
+            </div>
+            <div class="description text-right pr-4 py-2">
+                As a team from Marlborough College Malaysia in the F1 in Schools campaign, Andúril will be a competitor in various competitions around Malaysia such as the Johor State Finals in late June and with the FOBISIA Malaysian Schools in Q4 this year. We will be exposed to thousands of national and international judges and fellow competitors around the country, as well as be the sole provider for the track and racing competition for Marlborough College Malaysia for future races.
+            </div>
+        </div>
     </div>
+
 </body>
 </html>
