@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANDÚRIL</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+      
+        body {
+          font-family: 'Transducer', 'Transducer Regular';
+          background-color: black; /* Sets the background color of the entire page to black */
+        }
+        .sword-image {
+          position: absolute;
+          left: -45%;
+          top: 95%;
+          transform: rotate(270deg) scale(1.5); /* Scale image 50% larger */
+          z-index: 1; /* Ensure the sword image has a z-index for stacking */
+        }
+        nav {
+          position: relative; /* This makes z-index applicable */
+          z-index: 2; /* Higher than the sword image */
+        }
+    </style>
 </head>
 <body>
     <nav class="flex items-center justify-between flex-wrap bg-white p-6">
@@ -28,14 +47,14 @@
 
     <div class="w-full h-60 bg-cover" style="background-image: url('/assets/img/Copy of IMG_2571.JPG'); background-position: center 25%;">
     </div>
-      
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
-      
-        body {
-          font-family: 'Transducer', 'Transducer Regular';
-          background-color: black; /* Sets the background color of the entire page to black */
-        }
-      </style>
+
+    <div class="w-full h-96 bg-cover" style="background-image: url('/assets/img/GRID_CORNER_WHITE-RIGHT.png');">
+    </div>
+
+    <img src="/assets/img/Andúril Sword@4x.png" alt="ANDÚRIL Sword" class="sword-image">
+
+    <div class="text-right pr-4 py-2">
+        F1 in Schools
+    </div>
 </body>
 </html>
