@@ -103,61 +103,75 @@ body {
 
 /*** https://www.elegantthemes.com/blog/divi-resources/beautiful-css-hover-effects-you-can-add-to-your-divi-menus#style-one-growing-line-underneath ***/
 
-.content {
-    margin: 60px 0;
-    position: relative;
+.team-photo{
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
 }
 
-.team-photo{
-    height:270px;
-    width: 100%;
-    object-fit: cover;
-    object-position: bottom;
+#opening-image .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .sword {
     position: absolute;
-    transform: rotate(270deg);
-    height: 320px; 
-    margin: 630px 0 0 -720px;
-    z-index: 999;
+    width: 70%;
+    top: 50%;
 }
 
-.matrix {
-    transform: scaleX(-1);
-    width: 100%;
-    position: absolute;
-    top: 270px;
-    left: 0;
-    z-index: -1; 
-    opacity: 0.7;
-}
+section {
+    display: flex;
+    scroll-margin-top: 60px;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    font-size: 40px;
+    color: #c4c4c4;
+    font-family: transducer extended bold;
 
-.introduction {
-    text-align: right;
-    margin: 20px 45px 0 220px;
-    padding: 0;
+    &:nth-of-type(3){
+        background-color: gray;
+    }
 }
 
 h1{
-    font-family: Transducer Extended Bold;
-    color: #c4c4c4;
-    font-size: 40px;
-    margin: 0 0 0 100px;
+    margin: 0;
+    padding: 0;
 }
 
-p {
+#opening-image h1{
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100%;
+    pointer-events: none; 
+}
+
+#about div{
+    padding: 5%;
+}
+
+#about h1{
+    display: inline-block;
+    border-bottom: 3px solid #D0212A; 
+    display: inline-block; 
+    margin: 0 0 1% 0;
+    font-size: 100%;
+}
+
+#about p{
     font-family: Transducer;
+    margin: 0;
+    padding: 0;
     line-height: 2;
-}
-
-#section1, #section2 {
-    scroll-margin-top: 60px;
-    text-align: right;
-    font-size: 40px;
-    font-family: transducer extended bold;
-    padding-right: 50px;
-    margin: 50px 0;
+    font-size: 40%;
 }
 
 html {
@@ -165,5 +179,5 @@ html {
 }
 
 body {
-    animation: zoomDown 1s ease-out; /* Adjust animation duration and easing as needed */
+    animation: zoomDown 1s ease-out; 
 }
