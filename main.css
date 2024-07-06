@@ -103,61 +103,166 @@ body {
 
 /*** https://www.elegantthemes.com/blog/divi-resources/beautiful-css-hover-effects-you-can-add-to-your-divi-menus#style-one-growing-line-underneath ***/
 
-.content {
-    margin: 60px 0;
-    position: relative;
+.team-photo{
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
 }
 
-.team-photo{
-    height:270px;
-    width: 100%;
-    object-fit: cover;
-    object-position: bottom;
+#opening-image .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .sword {
     position: absolute;
-    transform: rotate(270deg);
-    height: 320px; 
-    margin: 630px 0 0 -720px;
-    z-index: 999;
+    width: 70%;
+    top: 50%;
 }
 
-.matrix {
-    transform: scaleX(-1);
-    width: 100%;
+#opening-image h1{
     position: absolute;
-    top: 270px;
-    left: 0;
-    z-index: -1; 
-    opacity: 0.7;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; 
+    text-align: center;
 }
 
-.introduction {
-    text-align: right;
-    margin: 20px 45px 0 220px;
-    padding: 0;
+section {
+    display: flex;
+    scroll-margin-top: 60px;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    font-size: 40px;
+    color: #c4c4c4;
+    font-family: transducer extended bold;
 }
 
 h1{
-    font-family: Transducer Extended Bold;
-    color: #c4c4c4;
-    font-size: 40px;
-    margin: 0 0 0 100px;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-p {
+#about div{
+    padding: 5%;
+    position: absolute;
+}
+
+#about .matrix-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform: rotate(180deg);
+    opacity: 0.8;
+}
+
+#about h1{
+    display: inline-block;
+    border-bottom: 3px solid #D0212A; 
+    margin: 0 0 1% 0;
+}
+
+#about p{
     font-family: Transducer;
+    margin: 0;
+    padding: 0;
     line-height: 2;
+    font-size: 40%;
 }
 
-#section1, #section2 {
-    scroll-margin-top: 60px;
-    text-align: right;
-    font-size: 40px;
-    font-family: transducer extended bold;
-    padding-right: 50px;
+#about .render{
     margin: 50px 0;
+    width: 600px;
+}
+
+@media only screen and (max-width: 400px) {
+    #about h1{
+        font-size: 30px;
+        margin: 0 0 20px 0;
+    }
+    #about p{
+        font-size: 15px;
+    }
+    #about img{
+        margin: 10px 0;
+        width: 300px;
+    }
+}
+
+#team{
+    background-color: white;
+}
+
+#sponsors {
+    height: 50vh;
+    background-color: #D0212A;
+}
+
+#sponsors h1{
+    text-align: center;
+    margin: 0 0 80px; 
+    color: white;
+    /*
+    border-bottom: 3px solid white; 
+    width: fit-content; 
+    margin-left: auto; 
+    margin-right: auto; 
+    */
+}
+
+#sponsors div{ 
+    width: 100%;
+}
+
+.sponsors-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#sponsors img{
+    height: 10vh;
+    margin: 10px 30px 10px 30px;
+    transition: transform 0.3s ease;
+}
+
+#sponsors img:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 400px) {
+    #sponsors{
+        height: 60vh;
+    }
+    #sponsors h1{
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+#faq {
+    flex-direction: column;
+}
+
+#faq h1{
+    color: #D0212A;
+}
+
+#faq h2{
+    font-size: 25px;
+    font-family: transducer;
 }
 
 html {
@@ -165,5 +270,7 @@ html {
 }
 
 body {
-    animation: zoomDown 1s ease-out; /* Adjust animation duration and easing as needed */
+    animation: zoomDown 1s ease-out; 
 }
+
+/* https://www.youtube.com/watch?v=B_yKOFWgKhY */
