@@ -8,6 +8,15 @@
     src: url('assets/fonts/Transducer-Regular.woff') format('woff');
 }
 
+@font-face {
+    font-family: 'Transducer Bold';
+    src: url('assets/fonts/Transducer-Bold.woff') format('woff');
+}
+
+* {
+    pointer-events: none;
+}
+
 body {
     background-color: black;
     color: white;
@@ -55,6 +64,7 @@ body {
 .menu ul li {
     margin: 0 30px; 
     position: relative; 
+    pointer-events: all;
 }
 
 .menu ul li a {
@@ -66,6 +76,7 @@ body {
     height: 100%; 
     box-sizing: border-box;
     position: relative;
+    pointer-events: all;
 }
 
 .menu ul li a:before {
@@ -101,7 +112,7 @@ body {
     display: none; 
 }
 
-/*** https://www.elegantthemes.com/blog/divi-resources/beautiful-css-hover-effects-you-can-add-to-your-divi-menus#style-one-growing-line-underneath ***/
+/* https://www.elegantthemes.com/blog/divi-resources/beautiful-css-hover-effects-you-can-add-to-your-divi-menus#style-one-growing-line-underneath */
 
 .team-photo{
     height: 100vh;
@@ -128,8 +139,7 @@ body {
     position: absolute;
     top: 75%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none; 
+    transform: translate(-50%, -50%); 
     text-align: center;
 }
 
@@ -139,7 +149,7 @@ section {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     font-size: 40px;
     color: #c4c4c4;
     font-family: transducer extended bold;
@@ -152,7 +162,7 @@ h1{
 }
 
 #about div{
-    padding: 5%;
+    padding: 0 100px 0 100px;
     position: absolute;
 }
 
@@ -162,8 +172,11 @@ h1{
     left: 0;
     width: 100vw;
     height: 100vh;
-    transform: rotate(180deg);
-    opacity: 0.8;
+    z-index: -2;
+    /* 
+    transform: rotate(180deg); 
+    opacity: 0.8; 
+    */
 }
 
 #about h1{
@@ -180,7 +193,7 @@ h1{
     font-size: 40%;
 }
 
-#about .render{
+.render{
     margin: 50px 0;
     width: 600px;
 }
@@ -204,7 +217,7 @@ h1{
 }
 
 #sponsors {
-    height: 50vh;
+    min-height: 50vh;
     background-color: #D0212A;
 }
 
@@ -253,7 +266,10 @@ h1{
 }
 
 #faq {
+    min-height: calc(100vh - 200px);
     flex-direction: column;
+    background-color: white;
+    padding: 100px 0 100px 0;
 }
 
 #faq h1{
@@ -263,6 +279,150 @@ h1{
 #faq h2{
     font-size: 25px;
     font-family: transducer;
+    color: black;
+}
+
+.accordion{
+    margin-top: 40px;
+    width: 75vw;
+}
+
+.accordion .accordion-item button[aria-expanded='true'] {
+    border-bottom: 1px solid black;
+}
+
+.accordion button {
+    font-family: transducer;
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+}
+  
+.accordion button:hover,
+.accordion button:focus {
+    cursor: pointer;
+    color: #D0212A;
+}
+
+.accordion button:hover::after,
+.accordion button:focus::after {
+    cursor: pointer;
+    color: #D0212A;
+    border: 1px solid #D0212A;
+}
+
+.accordion .accordion-title {
+    padding:0;
+    margin-left: 30px;
+    color: #D0212A;
+}
+
+.accordion .icon {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    color: black;
+}
+
+.accordion .icon::before {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 9px;
+    left: 5px;
+    width: 10px;
+    height: 2px;
+    background: currentColor;
+}
+  
+.accordion .icon::after {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 5px;
+    left: 9px;
+    width: 2px;
+    height: 10px;
+    background: currentColor;
+}
+  
+.accordion button[aria-expanded='true'] {
+    color: #D0212A;
+  }
+  
+.accordion button[aria-expanded='true'] .icon::after {
+    width: 0;
+  }
+  
+.accordion button[aria-expanded='true'] + .accordion-content {
+    opacity: 1;
+    max-height: 100vh;
+    transition: all 0.3s linear;
+    will-change: opacity, max-height;
+}
+  
+.accordion .accordion-content {
+    padding: 0;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s linear, max-height 0.3s linear;
+    will-change: opacity, max-height;
+}
+
+.accordion .accordion-content ul, .accordion .accordion-content ol{
+    padding-left: 33px;
+    margin: 20px 0;
+}
+  
+.accordion .accordion-content li, .accordion .accordion-content p{
+    font-family: transducer;
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0 0 20px;
+    color: black;
+}
+
+.accordion .accordion-content p{
+    margin-top: 20px;
+}
+
+#copyright{
+    min-height: 10vh;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.silver-logo{
+    margin-top: 15px;
+    width: 150px;
+}
+
+#copyright p{
+    font-size: 10px;
+    font-family: transducer;
+    margin: 15px;
+    max-height: 1em;
+}
+
+.matrix-copyright{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -2;
+    opacity: 0.5;
 }
 
 html {
@@ -273,4 +433,9 @@ body {
     animation: zoomDown 1s ease-out; 
 }
 
-/* https://www.youtube.com/watch?v=B_yKOFWgKhY */
+/* 
+
+https://www.youtube.com/watch?v=B_yKOFWgKhY 
+https://niemvuilaptrinh.medium.com/20-example-faq-component-for-website-development-abcfaf032c40
+
+*/
