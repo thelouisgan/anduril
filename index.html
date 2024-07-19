@@ -37,15 +37,20 @@
         </section>
 
         <section id="team">
+            <div class="teamoverlay"></div>
             <h1>Meet our Team</h1>
-            <fieldset>
-                <label><input type="radio" name="images" value="headshot"></label>
-                <label><input type="radio" name="images" value="headshot"></label>
-                <label><input type="radio" name="images" value="headshot"></label>
-                <label><input type="radio" name="images" value="headshot"></label>
-                <label><input type="radio" name="images" value="headshot"></label>
-                <label><input type="radio" name="images" value="headshot"></label>
-            </fieldset>
+            <section class="gallery">
+                <button class="arrow left-arrow" aria-label="Previous">&lt;</button>
+                <div class="gallery-wrapper">
+                    <div class="gallery-item"><img src="assets/img/pfp.jpg" alt="Image 1"></div>
+                    <div class="gallery-item"><img src="assets/img/pfp.jpg" alt="Image 2"></div>
+                    <div class="gallery-item"><img src="assets/img/pfp.jpg" alt="Image 3"></div>
+                    <div class="gallery-item"><img src="assets/img/pfp.jpg" alt="Image 4"></div>
+                    <div class="gallery-item"><img src="assets/img/pfp.jpg" alt="Image 5"></div>
+                    <div class="gallery-item"><img src="assets/img/pfp.jpg" alt="Image 6"></div>
+                </div>
+                <button class="arrow right-arrow" aria-label="Next">&gt;</button>
+            </section>        
         </section>
 
         <section id="sponsors">
@@ -145,6 +150,7 @@
 
     </div>
     <script src="faq.js"></script>
+    <script src="gallery.js"></script>
 </body>
 
 </html>
