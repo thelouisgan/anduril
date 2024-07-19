@@ -1,13 +1,42 @@
-document.querySelector('.left-arrow').addEventListener('click', () => {
-    document.querySelector('.gallery-wrapper').scrollBy({
-        left: -document.querySelector('.gallery-item').offsetWidth - 16, // Adjust based on item width and gap
-        behavior: 'smooth'
+const carousel = document.querySelector(".carousel"),
+firstImg = carousel.querySelectorAll(".wrapper img")[0];
+arrowIcons = document.querySelectorAll(".wrapper button");
+
+let isDragStart = false, prevPageX, prevScrollLeft;
+
+let firstImgWidth = firstImg.clientWidth;
+
+const updateImageWidth = () => {
+    firstImgWidth = firstImg.clientWidth;
+};
+
+window.addEventListener('resize', updateImageWidth); // Update width on resize
+updateImageWidth();
+
+arrowIcons.forEach(button => {
+    button.addEventListener("click", () => {
+        carousel.scrollLeft += button.id == "left" ? -firstImgWidth : firstImgWidth;
     });
 });
 
-document.querySelector('.right-arrow').addEventListener('click', () => {
-    document.querySelector('.gallery-wrapper').scrollBy({
-        left: document.querySelector('.gallery-item').offsetWidth + 16, // Adjust based on item width and gap
-        behavior: 'smooth'
-    });
-});
+const dragStart = (e) => {
+    isDragStart = true;
+    prevPageX = e.pageX;
+    prevScrollLeft = carousel.scrollLeft;
+    e.preventDefault();
+}
+
+const dragging = (e) => {
+    if (!isDragStart) return;
+    e.preventDefault();
+    let positionDiff = e.pageX - prevPageX;
+    carousel.scrollLeft = prevScrollLeft - positionDiff;
+}
+
+const dragStop = () => {
+    isDragStart = false;
+}
+
+carousel.addEventListener("mousedown", dragStart);
+carousel.addEventListener("mousemove", dragging);
+carousel.addEventListener("mouseup", dragStop);
