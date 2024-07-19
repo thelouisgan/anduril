@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+            /* Basic styling for the gallery */
+            .gallery {
+                display: flex;
+                align-items: center;
+                overflow: hidden; /* Hide overflow to keep arrows in place */
+                padding: 1rem;
+                position: relative; /* To position arrows absolutely */
+            }
+
+            .gallery-wrapper {
+                display: flex;
+                gap: 1rem;
+                overflow-x: auto; /* Enable horizontal scrolling */
+                scroll-snap-type: x mandatory; /* Snap scrolling */
+                scroll-behavior: smooth; /* Smooth scrolling */
+                padding: 0 2rem; /* Add horizontal padding for arrow visibility */
+                max-width: 100%;
+            }
+
+            .gallery-item {
+                flex: 0 0 auto; /* Prevent shrinking and growing */
+                width: calc(25% - 1rem); /* Show up to 4 images at a time, adjust for gap */
+                height: 150px; /* Fixed height for images, adjust as needed */
+                scroll-snap-align: start; /* Snap each item to the start of the scroll container */
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Ensure images cover the area */
+                display: block;
+                border-radius: 8px; /* Optional: rounded corners for images */
+            }
+
+            .arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0, 0, 0, 0.5);
+                color: white;
+                border: none;
+                padding: 0.5rem;
+                cursor: pointer;
+                z-index: 10; /* Ensure arrows are above content */
+                border-radius: 50%;
+            }
+
+            .left-arrow {
+                left: 0;
+            }
+
+            .right-arrow {
+                right: 0;
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 1200px) {
+                .gallery-item {
+                    width: calc(33.33% - 1rem); /* Show 3 images at a time */
+                }
+            }
+
+            @media (max-width: 900px) {
+                .gallery-item {
+                    width: calc(50% - 1rem); /* Show 2 images at a time */
+                }
+            }
+
+            @media (max-width: 600px) {
+                .gallery-item {
+                    width: calc(100% - 1rem); /* Show 1 image at a time */
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <section class="gallery">
+            <button class="arrow left-arrow" aria-label="Previous">&lt;</button>
+            <div class="gallery-wrapper">
+                <div class="gallery-item"><img src="assets/img/pfp.jpg" alt="Image 1"></div>
+                <div class="gallery-item"><img src="assets/img/pfp.jpg" alt="Image 2"></div>
+                <div class="gallery-item"><img src="assets/img/pfp.jpg" alt="Image 3"></div>
+                <div class="gallery-item"><img src="assets/img/pfp.jpg" alt="Image 4"></div>
+                <div class="gallery-item"><img src="assets/img/pfp.jpg" alt="Image 5"></div>
+                <div class="gallery-item"><img src="assets/img/pfp.jpg" alt="Image 6"></div>
+            </div>
+            <button class="arrow right-arrow" aria-label="Next">&gt;</button>
+        </section>             
+        <script src="gallery.js"></script>
+    </body>
+</html>

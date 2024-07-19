@@ -214,6 +214,71 @@ h1{
 
 #team{
     background-color: white;
+    flex-direction: column;
+    display: grid;
+    place-content: center;
+    padding: var(--size-5);
+    gap: var(--size-5);
+}
+
+#team h1{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#team label{
+    pointer-events: all;
+    --_img: url('assets/img/pfp.jpg');
+    background-image: var(--_img);
+    background-position: center;
+    background-size: auto 125%;
+}
+
+fieldset {
+    grid-template-columns: 
+        var(--col-1, 1fr) var(--col-2, 1fr) var(--col-3, 1fr) var(--col-4, 1fr) var(--col-5, 1fr) var(--col-6, 1fr);
+
+    transition: grid-template-columns 0.5s ease-in-out;
+
+    inline-size: 80vw;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: 50vh;
+    gap: var(--size-3);
+    border: none;
+}
+
+fieldset:has(label:nth-child(1) > input:checked) {
+    --col-1: 2fr;
+}
+
+fieldset:has(label:nth-child(2) > input:checked) {
+    --col-2: 2fr;
+}
+
+fieldset:has(label:nth-child(3) > input:checked) {
+    --col-3: 2fr;
+}
+
+fieldset:has(label:nth-child(4) > input:checked) {
+    --col-4: 2fr;
+}
+
+fieldset:has(label:nth-child(5) > input:checked) {
+    --col-5: 2fr;
+}
+
+fieldset:has(label:nth-child(6) > input:checked) {
+    --col-6: 2fr;
+}
+
+label {
+    cursor: pointer;
+    border-radius: var(--radius-4);
+}
+
+label input {
+    opacity: 0;
 }
 
 #sponsors {
@@ -292,6 +357,7 @@ h1{
 }
 
 .accordion button {
+    pointer-events: all;
     font-family: transducer;
     position: relative;
     display: block;
