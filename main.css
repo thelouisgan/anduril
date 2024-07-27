@@ -41,14 +41,15 @@ body {
 .menu ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
     display: flex;
-    padding: 0 0 0 130px;
+    padding: 0 0 0 9%;
     justify-content: flex-start; 
     align-items: center; 
     height: 100%; 
     width: 100%; 
 }
+
+/* https://www.elegantthemes.com/blog/divi-resources/beautiful-css-hover-effects-you-can-add-to-your-divi-menus#style-one-growing-line-underneath */
 
 .logo-menu {
     height: auto;
@@ -62,7 +63,7 @@ body {
 }
 
 .menu ul li {
-    margin: 0 30px; 
+    margin: 0 3%; 
     position: relative; 
     pointer-events: all;
 }
@@ -112,7 +113,11 @@ body {
     display: none; 
 }
 
-/* https://www.elegantthemes.com/blog/divi-resources/beautiful-css-hover-effects-you-can-add-to-your-divi-menus#style-one-growing-line-underneath */
+@media only screen and (max-width: 500px){
+    .menu ul {
+        padding: 0 0 0 10px;
+    }
+}
 
 .team-photo{
     height: 100vh;
@@ -141,6 +146,29 @@ body {
     left: 50%;
     transform: translate(-50%, -50%); 
     text-align: center;
+    line-height: 1.5em;
+    font-size: 40px;
+}
+
+@media only screen and (max-width: 890px){
+    .menu ul li:not(:first-child){
+        display: none;
+    }
+    .sword{
+        display: none;
+    }
+    #opening-image h1{
+        top: 68%;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    h1{
+        font-size: 30px;
+    }
+    #opening-image h1{
+        top: 65%;
+    }
 }
 
 section {
@@ -162,7 +190,7 @@ h1{
 }
 
 #about div{
-    padding: 0 100px 0 100px;
+    padding: 0 9% 0 9%;
     position: absolute;
 }
 
@@ -172,11 +200,8 @@ h1{
     left: 0;
     width: 100vw;
     height: 100vh;
+    object-fit: cover;
     z-index: -2;
-    /* 
-    transform: rotate(180deg); 
-    opacity: 0.8; 
-    */
 }
 
 #about h1{
@@ -198,16 +223,34 @@ h1{
     width: 600px;
 }
 
-@media only screen and (max-width: 400px) {
-    #about h1{
-        font-size: 30px;
-        margin: 0 0 20px 0;
+@media only screen and (max-width: 1100px){
+    h1:not(#opening-image h1){
+        font-size: 40px;
     }
+
     #about p{
-        font-size: 15px;
+        font-size: 18px;
     }
-    #about img{
-        margin: 10px 0;
+}
+
+@media only screen and (max-width: 800px){
+    .render{
+        margin: 30px 0;
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    h1:not(#opening-image h1){
+        font-size: 25px;
+    }
+
+    #about p{
+        font-size: 12px;
+    }
+
+    .render{
+        margin: 20px 0;
         width: 300px;
     }
 }
@@ -380,6 +423,7 @@ h1{
 
 #sponsors img{
     height: 10vh;
+    width: auto;
     margin: 10px 30px 10px 30px;
     transition: transform 0.3s ease;
     pointer-events: all;
@@ -390,14 +434,21 @@ h1{
     cursor: pointer;
 }
 
-@media only screen and (max-width: 400px) {
-    #sponsors{
-        height: 60vh;
+@media only screen and (max-width: 1100px){
+    #sponsors img{
+        height: 7vh;
     }
+}
+
+@media only screen and (max-width: 890px){
     #sponsors h1{
-        font-size: 30px;
-        text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #sponsors img{
+        height: 6vh;
     }
 }
 
@@ -410,12 +461,39 @@ h1{
 
 #faq h1{
     color: #D0212A;
+    text-align: center;
 }
 
 #faq h2{
     font-size: 25px;
     font-family: transducer;
     color: black;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1100px){
+    #faq h1{
+        width: 630px;
+        margin-bottom: 30px;
+    }
+    
+    #faq h2{
+        font-size: 18px;
+        width: 650px;
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    #faq h1{
+        width: 380px;
+    }
+    
+    #faq h2{
+        font-size: 18px;
+        width: 380px;
+        margin-bottom: 30px;
+    }
 }
 
 /* https://niemvuilaptrinh.medium.com/20-example-faq-component-for-website-development-abcfaf032c40 */
