@@ -1,3 +1,11 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    animation: zoomDown 1s ease-out; 
+}
+
 @font-face {
     font-family: 'Transducer Extended Bold';
     src: url('assets/fonts/Transducer-ExtendedBold.woff') format('woff');
@@ -13,11 +21,9 @@
     src: url('assets/fonts/Transducer-Bold.woff') format('woff');
 }
 
-/*
 * {
     pointer-events: none;
 }
-*/
 
 body {
     background-color: black;
@@ -151,7 +157,8 @@ body {
     font-size: 40px;
 }
 
-@media only screen and (max-width: 890px){
+@media only screen and (max-width: 890px),
+only screen and (max-height: 800px){
     .menu ul li:not(:first-child){
         display: none;
     }
@@ -191,6 +198,10 @@ h1{
     padding: 0;
 }
 
+#about{
+    min-height: 800px;
+}
+
 #about div{
     padding: 0 9% 0 9%;
     position: absolute;
@@ -200,6 +211,7 @@ h1{
     position: absolute;
     top: 0;
     left: 0;
+    min-height: 800px;
     width: 100vw;
     height: 100vh;
     object-fit: cover;
@@ -241,11 +253,12 @@ h1{
     }
 
     #about p{
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 900px),
+only screen and (max-height: 800px){
     .render{
         margin: 30px 0;
         width: 400px;
@@ -265,6 +278,10 @@ h1{
         margin: 20px 0;
         width: 300px;
     }
+
+    #about{
+        min-height: 600px;
+    }
 }
 
 #team{
@@ -274,7 +291,7 @@ h1{
     background-repeat: no-repeat;
     position: relative;
     flex-direction: column;
-    min-height: 95vh;
+    min-height: 600px;
 }
 
 .teamoverlay{
@@ -351,6 +368,7 @@ h1{
 }
 
 @media only screen and (max-width: 700px) {
+    
     #team h1{
         margin-bottom: 40px;
     }
@@ -449,6 +467,8 @@ h1{
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+/* https://stackoverflow.com/questions/6250394/how-to-increase-space-between-dotted-border-dots */
+
 .sponsors-container .grid-item {
     display: flex; 
     justify-content: center; 
@@ -476,6 +496,7 @@ h1{
 .sponsors-container .grid-item img {
     width: auto;
     height: 10vh;
+    min-height: 50px;
     transition: transform 0.3s ease;
     pointer-events: all;
 }
@@ -732,12 +753,4 @@ h1{
     position: absolute;
     z-index: -2;
     opacity: 0.6;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    animation: zoomDown 1s ease-out; 
 }
