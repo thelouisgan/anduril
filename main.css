@@ -1,0 +1,757 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    animation: zoomDown 1s ease-out; 
+}
+
+@font-face {
+    font-family: 'Transducer Extended Bold';
+    src: url('assets/fonts/Transducer-ExtendedBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Transducer';
+    src: url('assets/fonts/Transducer-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Transducer Bold';
+    src: url('assets/fonts/Transducer-Bold.woff') format('woff');
+}
+
+* {
+    pointer-events: none;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Transducer', sans-serif; 
+    margin: 0;
+    padding: 0;
+}
+
+.menu {
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    background-color: white; 
+    z-index: 1000; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    box-sizing: border-box;
+    height: 60px; 
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    padding: 0 0 0 9%;
+    justify-content: flex-start; 
+    align-items: center; 
+    height: 100%; 
+    width: 100%; 
+}
+
+/* https://www.elegantthemes.com/blog/divi-resources/beautiful-css-hover-effects-you-can-add-to-your-divi-menus#style-one-growing-line-underneath */
+
+.logo-menu {
+    height: auto;
+    max-height: 25px; 
+    width: auto; 
+    object-fit: contain; 
+}
+
+.logo-menu:hover {
+    cursor: pointer;
+}
+
+.menu ul li {
+    margin: 0 3%; 
+    position: relative; 
+    pointer-events: all;
+}
+
+.menu ul li a {
+    color: black;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    display: flex; 
+    align-items: center; 
+    height: 100%; 
+    box-sizing: border-box;
+    position: relative;
+    pointer-events: all;
+}
+
+.menu ul li a:before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    left: 0;
+    right: 100%;
+    bottom: -20%;
+    background: #D0212A; 
+    height: 3px; 
+    transition: right 0.3s ease; 
+}
+
+.menu ul li:hover a:before {
+    right: 0; 
+}
+
+.menu ul .current-menu-item a:before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+}
+
+.menu ul li li a:before {
+    bottom: 10%;
+}
+
+.menu ul li:first-child a:before {
+    display: none; 
+}
+
+@media only screen and (max-width: 500px){
+    .menu ul {
+        padding: 0 0 0 10px;
+    }
+}
+
+.team-photo{
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+}
+
+#opening-image .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.sword {
+    position: absolute;
+    width: 70%;
+    top: 50%;
+}
+
+#opening-image h1{
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    text-align: center;
+    line-height: 1.5em;
+    font-size: 40px;
+}
+
+@media only screen and (max-width: 890px),
+only screen and (max-height: 800px){
+    .menu ul li:not(:first-child){
+        display: none;
+    }
+    .sword{
+        display: none;
+    }
+    #opening-image h1{
+        top: 68%;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    h1{
+        font-size: 30px;
+    }
+
+    #opening-image h1{
+        top: 65%;
+    }
+}
+
+section {
+    display: flex;
+    scroll-margin-top: 59px;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    font-size: 40px;
+    color: #c4c4c4;
+    font-family: transducer extended bold;
+}
+
+h1{
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#about{
+    min-height: 800px;
+}
+
+#about div{
+    padding: 0 9% 0 9%;
+    position: absolute;
+}
+
+#about .matrix-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 800px;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -2;
+}
+
+#about h1{
+    display: inline-block;
+    margin: 0 0 1% 0;
+    position: relative;
+}
+
+#about h1::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0; 
+    bottom: -30px; 
+    width: 30%; 
+    border-bottom: 2px solid #D0212A; 
+}
+
+#about p{
+    font-family: Transducer;
+    margin: 50px 0 0 0;
+    padding: 0;
+    line-height: 2;
+    font-size: 40%;
+}
+
+.render{
+    margin: 50px 0;
+    width: 600px;
+}
+
+@media only screen and (max-width: 1100px){
+    h1:not(#opening-image h1){
+        font-size: 40px;
+    }
+
+    #about p{
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 900px),
+only screen and (max-height: 800px){
+    .render{
+        margin: 30px 0;
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    h1:not(#opening-image h1){
+        font-size: 25px;
+    }
+
+    #about p{
+        font-size: 12px;
+    }
+
+    .render{
+        margin: 20px 0;
+        width: 300px;
+    }
+
+    #about{
+        min-height: 600px;
+    }
+}
+
+#team{
+    background-image: url('assets/img/teambg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    flex-direction: column;
+    min-height: 600px;
+    height: 100vh;
+}
+
+.teamoverlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+#team h1{
+    color: white;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+/* https://medium.com/@claudiaconceic/infinite-plain-javascript-slider-click-and-touch-events-540c8bd174f2 */
+
+.slider {
+    position: relative;
+    width: 1200px;
+    height: 400px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,.2);
+}
+  
+.wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+  
+.slides {
+    display: flex;
+    position: relative;
+    top: 0;
+    left: -300px;
+    width: 10000px;
+}
+  
+.slides.shifting {
+    transition: left .2s ease-out;
+}
+  
+.slide {
+    width: 300px;
+    height: 400px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 1s;
+    position: relative;
+    border-radius: 2px;
+    pointer-events: all;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 1400px) {
+    .slider {
+        width: 900px;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .slider {
+        width: 600px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    
+    #team h1{
+        margin-bottom: 40px;
+    }
+    .slider {
+        width: 300px;
+    }
+}
+  
+.wrapper img{
+    pointer-events: all;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.wrapper img:hover{
+    transform: scale(1.07);
+}
+  
+.control {
+    pointer-events: all;
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 50px;
+    margin-top: -20px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+  
+.prev,
+.next {
+    background-size: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  
+.prev {
+    background-image: url(https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ChevronLeft-512.png);
+    left: -20px;
+}
+  
+.next {
+    background-image: url(https://cdn0.iconfinder.com/data/icons/navigation-set-arrows-part-one/32/ChevronRight-512.png);
+    right: -20px;
+}
+  
+.prev:active, .next:active {
+    transform: scale(.8);
+}
+
+#sponsors {
+    min-height: 0;
+    background-color: #D0212A;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 70px 0 60px 0;
+}
+
+#sponsors h1 {
+    margin: 0;
+    color: white;
+    text-align: left;
+}
+
+#sponsors h2 {
+    color: white;
+    font-size: 25px;
+    font-family: Transducer;
+}
+
+#sponsors .sponsors-page-container{
+    margin: 0 -30px 0 -30px;
+    border-right: 0.5px solid #c4c4c4;
+    border-left: 0.5px solid #c4c4c4;
+    width: 90%;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sponsors-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* https://stackoverflow.com/questions/6250394/how-to-increase-space-between-dotted-border-dots */
+
+.sponsors-container .grid-item {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+
+    background-image: 
+        linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+    background-position: top;
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+
+    padding: 15%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sponsors-container .grid-item:not(:nth-child(3n+1)) {
+    background-image: 
+        linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+        linear-gradient(#c4c4c4 33%, rgba(255,255,255,0) 0%);
+    background-position: top, left;
+    background-size: 10px 1px, 1px 10px;
+    background-repeat: repeat-x, repeat-y;
+  }
+
+.sponsors-container .grid-item img {
+    width: auto;
+    height: 10vh;
+    min-height: 50px;
+    transition: transform 0.3s ease;
+    pointer-events: all;
+}
+
+#sponsors img:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1100px){
+    .sponsors-container {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sponsors-container .grid-item img {
+        height: 6vh;
+    }
+
+    .sponsors-container .grid-item:nth-child(even) {
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+            linear-gradient(#c4c4c4 33%, rgba(255,255,255,0) 0%);
+        background-position: top, left;
+        background-size: 10px 1px, 1px 10px;
+        background-repeat: repeat-x, repeat-y;
+    }
+
+    .sponsors-container .grid-item:nth-child(odd) {
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+        background-position: top;
+        background-size: 10px 1px;
+        background-repeat: repeat-x;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #sponsors h2{
+        font-size: 12px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 25px 0 15px 0;
+    }
+
+    .sponsors-container {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .sponsors-container .grid-item img {
+        height: 7vh;
+    }
+
+    .sponsors-container .grid-item:not(:nth-child(3n+1)) {
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+        background-position: top;
+        background-size: 10px 1px;
+        background-repeat: repeat-x;
+    }
+}
+
+#faq {
+    min-height: calc(100vh - 200px);
+    flex-direction: column;
+    background-color: white;
+    padding: 100px 0 100px 0;
+}
+
+#faq h1{
+    color: #D0212A;
+    text-align: center;
+}
+
+#faq h2{
+    font-size: 25px;
+    font-family: transducer;
+    color: black;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1100px){
+    #faq h1{
+        width: 630px;
+        margin-bottom: 30px;
+    }
+    
+    #faq h2{
+        font-size: 18px;
+        width: 650px;
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    #faq h1{
+        width: 300px;
+    }
+    
+    #faq h2{
+        font-size: 18px;
+        width: 300px;
+        margin-bottom: 30px;
+    }
+}
+
+/* https://niemvuilaptrinh.medium.com/20-example-faq-component-for-website-development-abcfaf032c40 */
+
+.accordion{
+    margin-top: 40px;
+    width: 75vw;
+}
+
+.accordion .accordion-item button[aria-expanded='true'] {
+    border-bottom: 1px solid black;
+}
+
+.accordion button {
+    pointer-events: all;
+    font-family: transducer;
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+}
+  
+.accordion button:hover,
+.accordion button:focus {
+    cursor: pointer;
+    color: #D0212A;
+}
+
+.accordion button:hover::after,
+.accordion button:focus::after {
+    cursor: pointer;
+    color: #D0212A;
+    border: 1px solid #D0212A;
+}
+
+.accordion .accordion-title {
+    padding:0;
+    margin-left: 30px;
+    color: #D0212A;
+}
+
+.accordion .icon {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    color: black;
+}
+
+.accordion .icon::before {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 9px;
+    left: 5px;
+    width: 10px;
+    height: 2px;
+    background: currentColor;
+}
+  
+.accordion .icon::after {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 5px;
+    left: 9px;
+    width: 2px;
+    height: 10px;
+    background: currentColor;
+}
+  
+.accordion button[aria-expanded='true'] {
+    color: #D0212A;
+  }
+  
+.accordion button[aria-expanded='true'] .icon::after {
+    width: 0;
+  }
+  
+.accordion button[aria-expanded='true'] + .accordion-content {
+    opacity: 1;
+    max-height: 100vh;
+    transition: all 0.3s linear;
+    will-change: opacity, max-height;
+}
+  
+.accordion .accordion-content {
+    padding: 0;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s linear, max-height 0.3s linear;
+    will-change: opacity, max-height;
+}
+
+.accordion .accordion-content ul, .accordion .accordion-content ol{
+    padding-left: 33px;
+    margin: 20px 0;
+}
+  
+.accordion .accordion-content li, .accordion .accordion-content p{
+    font-family: transducer;
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0 0 20px;
+    color: black;
+}
+
+.accordion .accordion-content p{
+    margin-top: 20px;
+}
+
+#copyright{
+    min-height: 10vh;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.silver-logo{
+    margin-top: 15px;
+    width: 150px;
+}
+
+#copyright p{
+    font-size: 10px;
+    font-family: transducer;
+    margin: 15px;
+    max-height: 1em;
+}
+
+.matrix-copyright{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -2;
+    opacity: 0.6;
+}
