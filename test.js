@@ -13,30 +13,15 @@ function slide(wrapper, items, prev, next) {
         slidesLength = slides.length,
         slideSize = items.getElementsByClassName('slide')[0].offsetWidth,
         firstSlide = slides[0],
-        secondSlide = slides[1],
-        thirdSlide = slides[2],
-        fourthSlide = slides[3],
-        fifthSlide = slides[4],
         lastSlide = slides[slidesLength - 1],
         cloneFirst = firstSlide.cloneNode(true),
-        cloneSecond = secondSlide.cloneNode(true),
-        cloneThird = thirdSlide.cloneNode(true),
-        cloneFourth = fourthSlide.cloneNode(true),
-        cloneFifth = fifthSlide.cloneNode(true),
         cloneLast = lastSlide.cloneNode(true),
         index = 0,
         allowShift = true;
-    
+  
     // Clone first and last slide
     items.appendChild(cloneFirst);
-    items.appendChild(cloneSecond);
-    items.appendChild(cloneThird);
-    items.appendChild(cloneFourth);
-
     items.insertBefore(cloneLast, firstSlide);
-    items.insertBefore(cloneFifth, cloneLast);
-    items.insertBefore(cloneFourth, cloneFifth);
-    items.insertBefore(cloneThird, cloneFourth);
     wrapper.classList.add('loaded');
 
     // Click events
