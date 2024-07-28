@@ -21,9 +21,11 @@ body {
     src: url('assets/fonts/Transducer-Bold.woff') format('woff');
 }
 
+/*
 * {
     pointer-events: none;
 }
+*/
 
 body {
     background-color: black;
@@ -36,7 +38,7 @@ body {
 .menu {
     position: fixed; 
     top: 0; 
-    width: 100%; 
+    width: 100vw; 
     background-color: white; 
     z-index: 1000; 
     display: flex; 
@@ -120,11 +122,6 @@ body {
     display: none; 
 }
 
-@media only screen and (max-width: 500px){
-    .menu ul {
-        padding: 0 0 0 10px;
-    }
-}
 
 .team-photo{
     height: 100vh;
@@ -199,7 +196,7 @@ h1{
 }
 
 #about{
-    min-height: 800px;
+    min-height: 1000px;
 }
 
 #about div{
@@ -430,6 +427,8 @@ only screen and (max-height: 800px){
     background-color: #D0212A;
 }
 
+/* https://vercel.com/ship?ref=onepagelove */
+
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -442,12 +441,27 @@ only screen and (max-height: 800px){
     margin: 0;
     color: white;
     text-align: left;
+    width: 450px;
+    height: 100%
+}
+
+.h2-container{
+    display:flex;
+    align-items: center;
+    text-align: right;
 }
 
 #sponsors h2 {
     color: white;
     font-size: 25px;
     font-family: Transducer;
+    width: 100%;
+}
+
+#sponsors h2:not(:first-child){
+    width: 90%;
+    text-align: right;
+    margin: 60px 0 40px 0;
 }
 
 #sponsors .sponsors-page-container{
@@ -462,15 +476,385 @@ only screen and (max-height: 800px){
     justify-content: space-between;
 }
 
-.sponsors-container {
+.sponsors-container-diamond {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+}
+
+.sponsors-container-diamond .grid-item {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+
+    background-image: 
+        linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+        linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+    background-position: top, bottom;
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+
+    padding: 15%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sponsors-container-diamond .grid-item:nth-child(even){
+    background-image: 
+        linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+        linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+        linear-gradient(#c4c4c4 33%, rgba(255,255,255,0) 0%);
+    background-position: top, bottom, left;
+    background-size: 10px 1px, 10px 1px, 1px 10px;
+    background-repeat: repeat-x, repeat-x, repeat-y;
+}
+
+#sponsors p{
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    transition: transform 0.3s ease;
+    pointer-events: all;
+}
+
+#sponsors p:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 1100px){
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 50px 0 40px 0;
+    }
+
+    .h2-container{
+        justify-content: start;
+    }
+
+    #sponsors h2:not(:first-child){
+        text-align: left;
+    }
+
+    #sponsors p:nth-child(1){
+        font-size: 25px;
+    }
+
+    .sponsors-container-diamond {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .sponsors-container-diamond .grid-item:nth-child(even){
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+        background-position: top, bottom;
+        background-size: 10px 1px, 10px 1px, 1px 10px;
+        background-repeat: repeat-x;
+    }
+
+    .sponsors-container-diamond .grid-item:first-child{
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+        background-position: top;
+        background-size: 10px 1px, 10px 1px, 1px 10px;
+        background-repeat: repeat-x;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #sponsors h1:first-child{
+        width: 80vw;
+    }
+
+    #sponsors p:nth-child(1){
+        font-size: 20px;
+    }
+
+    #sponsors h2{
+        font-size: 14px;
+    }
+}
+
+/* https://stackoverflow.com/questions/6250394/how-to-increase-space-between-dotted-border-dots */
+
+.sponsors-container-gold {
     display: grid;
     width: 100%;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-/* https://stackoverflow.com/questions/6250394/how-to-increase-space-between-dotted-border-dots */
+.sponsors-container-gold .grid-item {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
 
-.sponsors-container .grid-item {
+    background-image: 
+        linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+        linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+    background-position: top, bottom;
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+
+    padding: 15%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sponsors-container-gold .grid-item:not(:nth-child(1)) {
+    background-image: 
+        linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+        linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+        linear-gradient(#c4c4c4 33%, rgba(255,255,255,0) 0%);
+    background-position: top, bottom, left;
+    background-size: 10px 1px, 10px 1px, 1px 10px;
+    background-repeat: repeat-x, repeat-x, repeat-y;
+}
+
+.sponsors-container-gold .grid-item img {
+    width: auto;
+    height: 9vh;
+    min-height: 50px;
+    transition: transform 0.3s ease;
+    pointer-events: all;
+}
+
+@media only screen and (max-width: 1700px){
+    .sponsors-container-gold .grid-item img {
+        height: 6vh;
+    }
+}
+
+#sponsors img:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1100px){
+    .sponsors-container-gold {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sponsors-container-gold .grid-item img {
+        height: 5vh;
+    }
+
+    .sponsors-container-gold .grid-item:nth-child(even) {
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+            linear-gradient(#c4c4c4 33%, rgba(255,255,255,0) 0%);
+        background-position: top, left;
+        background-size: 10px 1px, 1px 10px;
+        background-repeat: repeat-x, repeat-y;
+    }
+
+    .sponsors-container-gold .grid-item:nth-child(odd) {
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+        background-position: top;
+        background-size: 10px 1px;
+        background-repeat: repeat-x;
+    }
+
+    .sponsors-container-gold .grid-item:last-child {
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+            linear-gradient(#c4c4c4 33%, rgba(255,255,255,0) 0%);
+        background-position: top, bottom, left;
+        background-size: 10px 1px, 10px 1px, 1px 10px;
+        background-repeat: repeat-x, repeat-x, repeat-y;
+    }
+
+    .sponsors-container-gold .grid-item:nth-last-child(2) {
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+        background-position: top, bottom;
+        background-size: 10px 1px;
+        background-repeat: repeat-x;
+    }
+
+    .sponsors-container-gold .grid-item img {
+        height: 6vh;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .sponsors-container-gold {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .sponsors-container-gold .grid-item:nth-child(even),
+    .sponsors-container-gold .grid-item:nth-child(odd),
+    .sponsors-container-gold .grid-item:nth-last-child(2) {
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+        background-position: top;
+        background-size: 10px 1px;
+        background-repeat: repeat-x;
+    }
+
+    .sponsors-container-gold .grid-item:last-child{
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+        background-position: top, bottom;
+        background-size: 10px 1px;
+        background-repeat: repeat-x;
+    }
+}
+
+.sponsors-container-silver {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.sponsors-container-silver .grid-item img {
+    width: auto;
+    height: 10vh;
+    min-height: 50px;
+    transition: transform 0.3s ease;
+    pointer-events: all;
+}
+
+.sponsors-container-silver .grid-item {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+
+    background-image: 
+        linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+        linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+    background-position: top, bottom;
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+
+    padding: 15%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sponsors-container-silver .grid-item:not(:nth-child(1)) {
+    background-image: 
+        linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+        linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+        linear-gradient(#c4c4c4 33%, rgba(255,255,255,0) 0%);
+    background-position: top, bottom, left;
+    background-size: 10px 1px, 10px 1px, 1px 10px;
+    background-repeat: repeat-x, repeat-x, repeat-y;
+}
+
+@media only screen and (max-width: 1100px){
+    .sponsors-container-silver {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .sponsors-container-silver .grid-item {
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+    
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+        background-position: top;
+        background-size: 10px 1px;
+        background-repeat: repeat-x;
+    
+        padding: 15%;
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .sponsors-container-silver .grid-item:not(:nth-child(3n+1)) {
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+            linear-gradient(#c4c4c4 33%, rgba(255,255,255,0) 0%);
+        background-position: top, left;
+        background-size: 10px 1px, 1px 10px;
+        background-repeat: repeat-x, repeat-y;
+    }
+
+    .sponsors-container-silver .grid-item:nth-child(3n+1) {
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+        background-position: top;
+        background-size: 10px 1px;
+        background-repeat: repeat-x;
+    }
+
+    .sponsors-container-silver .grid-item:last-child,
+    .sponsors-container-silver .grid-item:nth-last-of-type(2) {
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%), 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+            linear-gradient(#c4c4c4 33%, rgba(255,255,255,0) 0%);
+        background-position: top, bottom, left;
+        background-size: 10px 1px, 10px 1px, 1px 10px;
+        background-repeat: repeat-x, repeat-x, repeat-y;
+    }
+
+    .sponsors-container-silver .grid-item:nth-last-of-type(3) {
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%), 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+        background-position: top, bottom;
+        background-size: 10px 1px;
+        background-repeat: repeat-x;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .sponsors-container-silver .grid-item img {
+        height: 9vh;
+    }
+
+    .sponsors-container-silver {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .sponsors-container-silver .grid-item:not(:nth-child(1)) {
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+        background-position: top;
+        background-size: 10px 1px;
+        background-repeat: repeat-x;
+    }
+
+    .sponsors-container-silver .grid-item:last-child{
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+        background-position: top, bottom;
+        background-size: 10px 1px;
+        background-repeat: repeat-x;
+    }
+}
+
+.sponsors-container-bronze {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+#sponsors .sponsors-container-bronze p {
+    font-size: 16px;
+}
+
+#sponsors .sponsors-container-bronze img {
+    height: 2em;
+}
+
+.sponsors-container-bronze .grid-item {
     display: flex; 
     justify-content: center; 
     align-items: center;
@@ -485,40 +869,40 @@ only screen and (max-height: 800px){
     transition: transform 0.3s ease-in-out;
 }
 
-.sponsors-container .grid-item:not(:nth-child(3n+1)) {
+.sponsors-container-bronze .grid-item:not(:nth-child(8n+1)) {
     background-image: 
         linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
         linear-gradient(#c4c4c4 33%, rgba(255,255,255,0) 0%);
     background-position: top, left;
     background-size: 10px 1px, 1px 10px;
     background-repeat: repeat-x, repeat-y;
-  }
-
-.sponsors-container .grid-item img {
-    width: auto;
-    height: 10vh;
-    min-height: 50px;
-    transition: transform 0.3s ease;
-    pointer-events: all;
 }
 
-#sponsors img:hover{
-    transform: scale(1.02);
-    cursor: pointer;
-}
 
 @media only screen and (max-width: 1100px){
-    .sponsors-container {
+    .sponsors-container-bronze {
         display: grid;
         width: 100%;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
-    .sponsors-container .grid-item img {
-        height: 6vh;
+    .sponsors-container-bronze .grid-item,
+    .sponsors-container-bronze .grid-item:not(:nth-child(8n+1)) {
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+    
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
+        background-position: top;
+        background-size: 10px 1px;
+        background-repeat: repeat-x;
+    
+        padding: 15%;
+        transition: transform 0.3s ease-in-out;
     }
-
-    .sponsors-container .grid-item:nth-child(even) {
+    
+    .sponsors-container-bronze .grid-item:not(:nth-child(4n+1)) {
         background-image: 
             linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
             linear-gradient(#c4c4c4 33%, rgba(255,255,255,0) 0%);
@@ -526,43 +910,37 @@ only screen and (max-height: 800px){
         background-size: 10px 1px, 1px 10px;
         background-repeat: repeat-x, repeat-y;
     }
-
-    .sponsors-container .grid-item:nth-child(odd) {
-        background-image: 
-            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
-        background-position: top;
-        background-size: 10px 1px;
-        background-repeat: repeat-x;
-    }
 }
 
 @media only screen and (max-width: 500px) {
-    #sponsors h2{
-        font-size: 12px;
-    }
-
-    .header-container {
-        flex-direction: column;
-        align-items: flex-start;
-        margin: 25px 0 15px 0;
-    }
-
-    .sponsors-container {
+    .sponsors-container-bronze {
         display: grid;
         width: 100%;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
-    .sponsors-container .grid-item img {
-        height: 7vh;
+    #sponsors .sponsors-container-bronze p {
+        font-size: 13px;
     }
 
-    .sponsors-container .grid-item:not(:nth-child(3n+1)) {
+    .sponsors-container-bronze .grid-item,
+    .sponsors-container-bronze .grid-item:not(:nth-child(8n+1)),
+    .sponsors-container-bronze .grid-item:not(:nth-child(4n+1))
+     {
         background-image: 
             linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
         background-position: top;
         background-size: 10px 1px;
         background-repeat: repeat-x;
+    }
+
+    .sponsors-container-bronze .grid-item:nth-child(even){
+        background-image: 
+            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
+            linear-gradient(#c4c4c4 33%, rgba(255,255,255,0) 0%);
+        background-position: top, left;
+        background-size: 10px 1px, 1px 10px;
+        background-repeat: repeat-x, repeat-y;
     }
 }
 
@@ -587,18 +965,28 @@ only screen and (max-height: 800px){
 
 @media only screen and (max-width: 1100px){
     #faq h1{
-        width: 630px;
+        width: 700px;
         margin-bottom: 30px;
     }
     
     #faq h2{
         font-size: 18px;
-        width: 650px;
+        width: 700px;
         margin-bottom: 30px;
     }
 }
 
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 800px){
+    #faq h1{
+        width: 500px;
+    }
+    
+    #faq h2{
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 600px){
     #faq h1{
         width: 300px;
     }
@@ -728,7 +1116,7 @@ only screen and (max-height: 800px){
     margin-top: 20px;
 }
 
-#copyright{
+#contact{
     min-height: 10vh;
     flex-direction: column;
     align-items: center;
@@ -740,7 +1128,7 @@ only screen and (max-height: 800px){
     width: 150px;
 }
 
-#copyright p{
+#contact p{
     font-size: 10px;
     font-family: transducer;
     margin: 15px;
