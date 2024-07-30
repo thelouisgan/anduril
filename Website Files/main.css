@@ -21,11 +21,9 @@ body {
     src: url('assets/fonts/Transducer-Bold.woff') format('woff');
 }
 
-/*
 * {
     pointer-events: none;
 }
-*/
 
 body {
     background-color: black;
@@ -154,16 +152,23 @@ body {
     font-size: 40px;
 }
 
-@media only screen and (max-width: 890px),
-only screen and (max-height: 800px){
+@media only screen and (max-width: 890px){
     .menu ul li:not(:first-child){
         display: none;
     }
+
     .sword{
         display: none;
     }
+
     #opening-image h1{
         top: 68%;
+    }
+}
+
+@media only screen and (max-height: 800px){
+    #opening-image h1{
+        font-size: 30px;
     }
 }
 
@@ -196,7 +201,7 @@ h1{
 }
 
 #about{
-    min-height: 1000px;
+    min-height: 900px;
 }
 
 #about div{
