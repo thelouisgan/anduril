@@ -152,6 +152,14 @@ body {
     font-size: 40px;
 }
 
+@media only screen and (max-width: 1330px){
+    .sword {
+        position: absolute;
+        width: 85%;
+        top: 50%;
+    }
+}
+
 @media only screen and (max-width: 890px){
     .menu ul li:not(:first-child){
         display: none;
