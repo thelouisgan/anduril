@@ -156,18 +156,19 @@ body {
 
 @media only screen and (max-width: 890px),
 only screen and (max-height: 800px){
-    .menu ul li:not(:first-child){
-        display: none;
-    }
-    .sword{
-        display: none;
-    }
     #opening-image h1{
         top: 68%;
     }
 }
 
 @media only screen and (max-width: 500px){
+    .menu ul li:not(:first-child){
+        display: none;
+    }
+    .sword{
+        display: none;
+    }
+    
     h1{
         font-size: 30px;
     }
@@ -1117,15 +1118,29 @@ only screen and (max-height: 800px){
 }
 
 #contact{
-    min-height: 10vh;
+    min-height: 20vh;
+    position: relative;
+}
+
+.copyright-container, .button-container{
+    display:flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    justify-content: center;
+}
+
+.copyright-container{
+    width: 20%;
+}
+
+.button-container{
+    width: 40%;
 }
 
 .silver-logo{
     margin-top: 15px;
     width: 150px;
+    height: 100%;
 }
 
 #contact p{
@@ -1133,6 +1148,62 @@ only screen and (max-height: 800px){
     font-family: transducer;
     margin: 15px;
     max-height: 1em;
+}
+
+.instagram img{
+    height:25px;
+    width: auto;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.social-media{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; 
+    margin-top: 20px;
+}
+
+.popup {
+    pointer-events: all;
+    position: relative;
+    cursor: pointer;
+    background-image: url('assets/img/email.png'); 
+    background-size: contain; 
+    background-repeat: no-repeat;
+    height: 24px; 
+    width: 36px;
+    margin-bottom: -1px;
+} 
+
+.popup .popuptext {
+    visibility: hidden;
+    font-size: 10px;
+    color: #fff;
+    font-family: transducer;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    top: -150%;
+    left: 150%;
+}
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
 }
 
 .matrix-copyright{
