@@ -162,13 +162,12 @@ only screen and (max-height: 800px){
 }
 
 @media only screen and (max-width: 500px){
-    .menu ul li:not(:first-child){
+        .menu ul li:not(:first-child){
         display: none;
     }
     .sword{
         display: none;
     }
-    
     h1{
         font-size: 30px;
     }
