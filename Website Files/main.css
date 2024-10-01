@@ -558,6 +558,10 @@ only screen and (max-height: 800px){
 }
 
 @media only screen and (max-width: 600px){
+    #sponsors h1{
+        width: 300px;
+    }
+
     .sponsors-container-gold {
         grid-template-columns: 1fr;
     }
