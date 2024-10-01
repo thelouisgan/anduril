@@ -22,7 +22,7 @@ body {
 }
 
 * {
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 
 body {
@@ -36,7 +36,7 @@ body {
 .menu {
     position: fixed; 
     top: 0; 
-    width: 100%; 
+    width: 100vw; 
     background-color: white; 
     z-index: 1000; 
     display: flex; 
@@ -120,11 +120,6 @@ body {
     display: none; 
 }
 
-@media only screen and (max-width: 500px){
-    .menu ul {
-        padding: 0 0 0 10px;
-    }
-}
 
 .team-photo{
     height: 100vh;
@@ -157,16 +152,31 @@ body {
     font-size: 40px;
 }
 
-@media only screen and (max-width: 890px),
-only screen and (max-height: 800px){
+@media only screen and (max-width: 1330px){
+    .sword {
+        position: absolute;
+        width: 85%;
+        top: 50%;
+    }
+}
+
+@media only screen and (max-width: 890px){
     .menu ul li:not(:first-child){
         display: none;
     }
+
     .sword{
         display: none;
     }
+
     #opening-image h1{
         top: 68%;
+    }
+}
+
+@media only screen and (max-height: 800px){
+    #opening-image h1{
+        font-size: 30px;
     }
 }
 
@@ -199,7 +209,7 @@ h1{
 }
 
 #about{
-    min-height: 800px;
+    min-height: 900px;
 }
 
 #about div{
@@ -430,6 +440,8 @@ only screen and (max-height: 800px){
     background-color: #D0212A;
 }
 
+/* https://vercel.com/ship?ref=onepagelove */
+
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -442,12 +454,21 @@ only screen and (max-height: 800px){
     margin: 0;
     color: white;
     text-align: left;
+    width: 450px;
+    height: 100%
+}
+
+.h2-container{
+    display:flex;
+    align-items: center;
+    text-align: right;
 }
 
 #sponsors h2 {
     color: white;
     font-size: 25px;
     font-family: Transducer;
+    width: 100%;
 }
 
 #sponsors .sponsors-page-container{
@@ -462,15 +483,28 @@ only screen and (max-height: 800px){
     justify-content: space-between;
 }
 
-.sponsors-container {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr 1fr 1fr;
+#sponsors p{
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    transition: transform 0.3s ease;
+    pointer-events: all;
+}
+
+#sponsors p:hover{
+    transform: scale(1.02);
+    cursor: pointer;
 }
 
 /* https://stackoverflow.com/questions/6250394/how-to-increase-space-between-dotted-border-dots */
 
-.sponsors-container .grid-item {
+.sponsors-container-gold {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+}
+
+.sponsors-container-gold .grid-item {
     display: flex; 
     justify-content: center; 
     align-items: center;
@@ -481,23 +515,22 @@ only screen and (max-height: 800px){
     background-size: 10px 1px;
     background-repeat: repeat-x;
 
-    padding: 15%;
+    padding: 10%;
     transition: transform 0.3s ease-in-out;
 }
 
-.sponsors-container .grid-item:not(:nth-child(3n+1)) {
+.sponsors-container-gold .grid-item:nth-child(even) {
     background-image: 
         linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
         linear-gradient(#c4c4c4 33%, rgba(255,255,255,0) 0%);
     background-position: top, left;
     background-size: 10px 1px, 1px 10px;
     background-repeat: repeat-x, repeat-y;
-  }
+}
 
-.sponsors-container .grid-item img {
-    width: auto;
-    height: 10vh;
-    min-height: 50px;
+.sponsors-container-gold .grid-item img {
+    width: 200px;
+    height: auto;
     transition: transform 0.3s ease;
     pointer-events: all;
 }
@@ -508,56 +541,39 @@ only screen and (max-height: 800px){
 }
 
 @media only screen and (max-width: 1100px){
-    .sponsors-container {
-        display: grid;
-        width: 100%;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .sponsors-container .grid-item img {
-        height: 6vh;
-    }
-
-    .sponsors-container .grid-item:nth-child(even) {
-        background-image: 
-            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%),
-            linear-gradient(#c4c4c4 33%, rgba(255,255,255,0) 0%);
-        background-position: top, left;
-        background-size: 10px 1px, 1px 10px;
-        background-repeat: repeat-x, repeat-y;
-    }
-
-    .sponsors-container .grid-item:nth-child(odd) {
-        background-image: 
-            linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
-        background-position: top;
-        background-size: 10px 1px;
-        background-repeat: repeat-x;
+    .sponsors-container-gold .grid-item img {
+        width: 150px;
+        height: auto;
+        transition: transform 0.3s ease;
+        pointer-events: all;
     }
 }
 
-@media only screen and (max-width: 500px) {
-    #sponsors h2{
-        font-size: 12px;
-    }
-
+@media only screen and (max-width: 800px){
     .header-container {
         flex-direction: column;
         align-items: flex-start;
         margin: 25px 0 15px 0;
     }
+}
 
-    .sponsors-container {
-        display: grid;
-        width: 100%;
+@media only screen and (max-width: 600px){
+    #sponsors h1{
+        width: 300px;
+    }
+
+    .sponsors-container-gold {
         grid-template-columns: 1fr;
     }
 
-    .sponsors-container .grid-item img {
-        height: 7vh;
+    .sponsors-container-gold .grid-item img {
+        height: 70px;
+        height: auto;
+        transition: transform 0.3s ease;
+        pointer-events: all;
     }
 
-    .sponsors-container .grid-item:not(:nth-child(3n+1)) {
+    .sponsors-container-gold .grid-item:nth-child(even) {
         background-image: 
             linear-gradient(to right, #c4c4c4 66%, rgba(255,255,255,0) 0%);
         background-position: top;
@@ -587,18 +603,28 @@ only screen and (max-height: 800px){
 
 @media only screen and (max-width: 1100px){
     #faq h1{
-        width: 630px;
+        width: 700px;
         margin-bottom: 30px;
     }
     
     #faq h2{
         font-size: 18px;
-        width: 650px;
+        width: 700px;
         margin-bottom: 30px;
     }
 }
 
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 800px){
+    #faq h1{
+        width: 500px;
+    }
+    
+    #faq h2{
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 600px){
     #faq h1{
         width: 300px;
     }
@@ -728,7 +754,7 @@ only screen and (max-height: 800px){
     margin-top: 20px;
 }
 
-#copyright{
+#contact{
     min-height: 10vh;
     flex-direction: column;
     align-items: center;
@@ -740,7 +766,7 @@ only screen and (max-height: 800px){
     width: 150px;
 }
 
-#copyright p{
+#contact p{
     font-size: 10px;
     font-family: transducer;
     margin: 15px;
